@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JASPAN Admin Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --j: #FF6B00; --dark: #1C1C1E; --bg: #f9f9f7; --card: #fff; --border: rgba(0,0,0,0.08); --text: #1C1C1E; --muted: #6b6b6b; --radius: 14px; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); }
+
+    /* LOGIN */
+    .login-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--dark); }
+    .login-box { background: #fff; border-radius: 20px; padding: 2.5rem; width: 100%; max-width: 380px; text-align: center; }
+    .login-logo { background: var(--j); color: #fff; font-size: 22px; font-weight: 700; width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+    .login-box h1 { font-size: 1.3rem; font-weight: 700; margin-bottom: 4px; }
+    .login-box p { font-size: 13px; color: var(--muted); margin-bottom: 1.5rem; }
+    .login-box input { width: 100%; padding: 11px 14px; border: 1px solid var(--border); border-radius: 10px; font-size: 14px; font-family: inherit; margin-bottom: 10px; outline: none; }
+    .login-box input:focus { border-color: var(--j); }
+    .login-btn { width: 100%; background: var(--j); color: #fff; padding: 12px; border-radius: 10px; font-size: 15px; font-weight: 700; border: none; cursor: pointer; font-family: inherit; }
+    .login-err { color: #c0392b; font-size: 13px; margin-top: 8px; display: none; }
+
+    /* DASHBOARD */
+    .dashboard { display: none; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; background: #fff; border-bottom: 1px solid var(--border); }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo-box { background: var(--j); color: #fff; font-size: 16px; font-weight: 700; width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; }
+    .logo-name { font-size: 16px; font-weight: 700; }
+    .logo-name span { color: var(--j); }
+    .admin-tag { background: #faeeda; color: #854f0b; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 10px; }
+    .logout-btn { background: none; border: 1px solid var(--border); color: var(--muted); padding: 7px 16px; border-radius: 20px; font-size: 13px; cursor: pointer; font-family: inherit; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+    .page-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .page-sub { font-size: 13px; color: var(--muted); margin-bottom: 2rem; }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 2rem; }
+    .stat { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+    .stat-n { font-size: 2rem; font-weight: 700; color: var(--text); }
+    .stat-n.accent { color: var(--j); }
+    .stat-l { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+    .filters { display: flex; gap: 8px; margin-bottom: 1.25rem; flex-wrap: wrap; }
+    .filter-btn { padding: 7px 16px; border-radius: 20px; font-size: 13px; border: 1px solid var(--border); cursor: pointer; background: var(--card); color: var(--muted); font-family: inherit; transition: all 0.15s; }
+    .filter-btn.on { background: var(--j); color: #fff; border-color: var(--j); }
+
+    .dreams-table { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .table-header { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1.2fr; gap: 12px; padding: 0.85rem 1.25rem; background: var(--bg); border-bottom: 1px solid var(--border); font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+    .dream-row { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1.2fr; gap: 12px; padding: 1rem 1.25rem; border-bottom: 1px solid var(--border); align-items: center; transition: background 0.1s; }
+    .dream-row:last-child { border-bottom: none; }
+    .dream-row:hover { background: var(--bg); }
+    .dream-name { font-size: 14px; font-weight: 600; color: var(--text); }
+    .dream-who { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .dream-cat { font-size: 12px; color: var(--muted); }
+    .dream-price { font-size: 13px; font-weight: 600; color: var(--text); }
+    .dream-date { font-size: 12px; color: var(--muted); }
+    .status-badge { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 10px; display: inline-block; }
+    .s-pending { background: #e6f1fb; color: #185fa5; }
+    .s-arranged { background: #faeeda; color: #854f0b; }
+    .s-fulfilled { background: #e1f5ee; color: #0f6e56; }
+    .action-btns { display: flex; gap: 6px; }
+    .act-btn { padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 600; border: none; cursor: pointer; font-family: inherit; }
+    .act-arrange { background: #faeeda; color: #854f0b; }
+    .act-fulfill { background: #e1f5ee; color: #0f6e56; }
+    .act-delete { background: #fde8e8; color: #c0392b; }
+
+    .empty-state { text-align: center; padding: 3rem; color: var(--muted); }
+    .empty-state div { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .loading { text-align: center; padding: 2rem; color: var(--muted); font-size: 14px; }
+
+    @media (max-width: 768px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .table-header, .dream-row { grid-template-columns: 1fr 1fr; }
+      .table-header .hide-mobile, .dream-row .hide-mobile { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login-wrap" id="login-wrap">
+  <div class="login-box">
+    <div class="login-logo">J</div>
+    <h1>JASPAN Admin</h1>
+    <p>Login to manage all dream submissions</p>
+    <input type="text" id="admin-user" placeholder="Username" />
+    <input type="password" id="admin-pass" placeholder="Password" onkeydown="if(event.key==='Enter')doLogin()" />
+    <button class="login-btn" onclick="doLogin()">Login to dashboard</button>
+    <div class="login-err" id="login-err">Wrong username or password!</div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dashboard" id="dashboard">
+  <nav>
+    <div class="logo">
+      <div class="logo-box">J</div>
+      <div>
+        <div class="logo-name"><span>JAS</span>PAN</div>
+      </div>
+    </div>
+    <div class="admin-tag">Admin Dashboard</div>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </nav>
+
+  <div class="container">
+    <div class="page-title">Dream Submissions</div>
+    <div class="page-sub" id="last-updated">Loading...</div>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-n" id="d-total">0</div><div class="stat-l">Total dreams</div></div>
+      <div class="stat"><div class="stat-n" id="d-pending">0</div><div class="stat-l">Pending</div></div>
+      <div class="stat"><div class="stat-n accent" id="d-arranged">0</div><div class="stat-l">Being arranged</div></div>
+      <div class="stat"><div class="stat-n" id="d-fulfilled">0</div><div class="stat-l">Fulfilled</div></div>
+    </div>
+
+    <div class="filters">
+      <button class="filter-btn on" onclick="filterDreams('all', this)">All</button>
+      <button class="filter-btn" onclick="filterDreams('pending', this)">Pending</button>
+      <button class="filter-btn" onclick="filterDreams('arranged', this)">Arranged</button>
+      <button class="filter-btn" onclick="filterDreams('fulfilled', this)">Fulfilled</button>
+    </div>
+
+    <div class="dreams-table">
+      <div class="table-header">
+        <div>Dream</div>
+        <div class="hide-mobile">Category</div>
+        <div>Price</div>
+        <div class="hide-mobile">Date</div>
+        <div>Status</div>
+        <div>Actions</div>
+      </div>
+      <div id="dreams-list"><div class="loading">Loading dreams...</div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const SUPABASE_URL = 'https://vhfbltrllszwhbxtktud.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZoZmJsdHJsbHN6d2hieHRrdHVkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkwMDgzNjUsImV4cCI6MjA5NDU4NDM2NX0.wF-3s4dJljCGF49GKTD9sRsR-COqiYjRqQB_42KzbiQ';
+
+  // CHANGE THESE TO YOUR OWN USERNAME AND PASSWORD
+  const ADMIN_USER = 'jaspan';
+  const ADMIN_PASS = 'jaspan@2024';
+
+  let allDreams = [];
+  let currentFilter = 'all';
+
+  function doLogin() {
+    const u = document.getElementById('admin-user').value;
+    const p = document.getElementById('admin-pass').value;
+    if (u === ADMIN_USER && p === ADMIN_PASS) {
+      document.getElementById('login-wrap').style.display = 'none';
+      document.getElementById('dashboard').style.display = 'block';
+      loadDreams();
+    } else {
+      document.getElementById('login-err').style.display = 'block';
+    }
+  }
+
+  function logout() {
+    document.getElementById('login-wrap').style.display = 'flex';
+    document.getElementById('dashboard').style.display = 'none';
+    document.getElementById('admin-user').value = '';
+    document.getElementById('admin-pass').value = '';
+  }
+
+  async function loadDreams() {
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/dreams?select=*&order=created_at.desc`, {
+        headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
+      });
+      allDreams = await res.json();
+      updateStats();
+      renderDreams();
+      document.getElementById('last-updated').textContent = 'Last updated: ' + new Date().toLocaleString('en-IN');
+    } catch(e) {
+      document.getElementById('dreams-list').innerHTML = '<div class="empty-state"><div>⚠️</div>Could not load dreams. Check your connection.</div>';
+    }
+  }
+
+  function updateStats() {
+    document.getElementById('d-total').textContent = allDreams.length;
+    document.getElementById('d-pending').textContent = allDreams.filter(d => d.status === 'pending').length;
+    document.getElementById('d-arranged').textContent = allDreams.filter(d => d.status === 'arranged').length;
+    document.getElementById('d-fulfilled').textContent = allDreams.filter(d => d.status === 'fulfilled').length;
+  }
+
+  function filterDreams(filter, btn) {
+    currentFilter = filter;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    renderDreams();
+  }
+
+  function renderDreams() {
+    const filtered = currentFilter === 'all' ? allDreams : allDreams.filter(d => d.status === currentFilter);
+    if (filtered.length === 0) {
+      document.getElementById('dreams-list').innerHTML = '<div class="empty-state"><div>🌟</div>No dreams yet in this category!</div>';
+      return;
+    }
+    document.getElementById('dreams-list').innerHTML = filtered.map(d => `
+      <div class="dream-row" id="row-${d.id}">
+        <div>
+          <div class="dream-name">${d.dream}</div>
+          <div class="dream-who">${d.name}${d.age ? ', ' + d.age : ''} · ${d.city}</div>
+          ${d.story ? `<div class="dream-who" style="margin-top:2px;font-style:italic">"${d.story.substring(0,60)}${d.story.length>60?'...':''}"</div>` : ''}
+        </div>
+        <div class="dream-cat hide-mobile">${d.category || '—'}</div>
+        <div class="dream-price">${d.price ? '₹' + Number(d.price).toLocaleString('en-IN') : '—'}</div>
+        <div class="dream-date hide-mobile">${new Date(d.created_at).toLocaleDateString('en-IN')}</div>
+        <div><span class="status-badge s-${d.status}">${d.status}</span></div>
+        <div class="action-btns">
+          ${d.status === 'pending' ? `<button class="act-btn act-arrange" onclick="updateStatus('${d.id}','arranged')">Arrange</button>` : ''}
+          ${d.status === 'arranged' ? `<button class="act-btn act-fulfill" onclick="updateStatus('${d.id}','fulfilled')">Fulfill</button>` : ''}
+          <button class="act-btn act-delete" onclick="deleteDream('${d.id}')">Delete</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  async function updateStatus(id, status) {
+    try {
+      await fetch(`${SUPABASE_URL}/rest/v1/dreams?id=eq.${id}`, {
+        method: 'PATCH',
+        headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status })
+      });
+      await loadDreams();
+    } catch(e) { alert('Could not update status!'); }
+  }
+
+  async function deleteDream(id) {
+    if (!confirm('Are you sure you want to delete this dream?')) return;
+    try {
+      await fetch(`${SUPABASE_URL}/rest/v1/dreams?id=eq.${id}`, {
+        method: 'DELETE',
+        headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
+      });
+      await loadDreams();
+    } catch(e) { alert('Could not delete!'); }
+  }
+</script>
+</body>
+</html>

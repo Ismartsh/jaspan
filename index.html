@@ -20,8 +20,6 @@
     }
     body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); }
     a { text-decoration: none; }
-
-    /* NAV */
     nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
     .logo { display: flex; align-items: center; gap: 10px; }
     .logo-box { background: var(--j); color: #fff; font-size: 18px; font-weight: 700; width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
@@ -29,16 +27,11 @@
     .logo-info .logo-name span { color: var(--j); }
     .logo-info .logo-tag { font-size: 10px; color: var(--muted); letter-spacing: 0.04em; }
     .nav-links { display: flex; gap: 24px; }
-    .nav-links a { font-size: 14px; color: var(--muted); font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--text); }
-    .nav-cta { background: var(--j); color: #fff; padding: 10px 22px; border-radius: 24px; font-size: 14px; font-weight: 600; border: none; cursor: pointer; transition: opacity 0.2s; }
-    .nav-cta:hover { opacity: 0.88; }
-    .nav-menu { display: none; background: none; border: none; cursor: pointer; font-size: 22px; color: var(--text); }
-
-    /* HERO */
+    .nav-links a { font-size: 14px; color: var(--muted); font-weight: 500; }
+    .nav-cta { background: var(--j); color: #fff; padding: 10px 22px; border-radius: 24px; font-size: 14px; font-weight: 600; border: none; cursor: pointer; }
     .hero { background: var(--dark); padding: 5rem 2rem 4rem; text-align: center; position: relative; overflow: hidden; }
     .hero-dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,107,0,0.18) 1px, transparent 1px); background-size: 28px 28px; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,107,0,0.15); border: 1px solid rgba(255,107,0,0.3); color: var(--j); font-size: 12px; font-weight: 600; padding: 6px 16px; border-radius: 24px; margin-bottom: 1.5rem; position: relative; letter-spacing: 0.02em; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,107,0,0.15); border: 1px solid rgba(255,107,0,0.3); color: var(--j); font-size: 12px; font-weight: 600; padding: 6px 16px; border-radius: 24px; margin-bottom: 1.5rem; position: relative; }
     .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; color: #fff; line-height: 1.12; margin-bottom: 1rem; position: relative; }
     .hero h1 span { color: var(--j); }
     .hero p { color: rgba(255,255,255,0.55); font-size: 1.05rem; max-width: 480px; margin: 0 auto 1.25rem; line-height: 1.7; position: relative; }
@@ -46,37 +39,24 @@
     .mpill { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.65); font-size: 12px; padding: 5px 12px; border-radius: 20px; }
     .mpill b { color: var(--j); }
     .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
-    .btn-main { background: var(--j); color: #fff; padding: 14px 32px; border-radius: 32px; font-weight: 700; font-size: 15px; border: none; cursor: pointer; transition: opacity 0.2s; }
-    .btn-main:hover { opacity: 0.88; }
-    .btn-out { background: transparent; color: #fff; padding: 14px 32px; border-radius: 32px; font-size: 15px; font-weight: 500; border: 1px solid rgba(255,255,255,0.2); cursor: pointer; transition: background 0.2s; }
-    .btn-out:hover { background: rgba(255,255,255,0.06); }
-
-    /* CONTAINER */
+    .btn-main { background: var(--j); color: #fff; padding: 14px 32px; border-radius: 32px; font-weight: 700; font-size: 15px; border: none; cursor: pointer; }
+    .btn-out { background: transparent; color: #fff; padding: 14px 32px; border-radius: 32px; font-size: 15px; font-weight: 500; border: 1px solid rgba(255,255,255,0.2); cursor: pointer; }
     .container { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; }
-
-    /* STATS */
     .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 3rem; }
     .stat { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; text-align: center; }
     .stat-n { font-size: 1.75rem; font-weight: 700; color: var(--text); }
     .stat-n.accent { color: var(--j); }
     .stat-l { font-size: 13px; color: var(--muted); margin-top: 4px; }
-
-    /* SECTION HEADER */
     .sec { margin-bottom: 1.5rem; }
     .sec h2 { font-size: 1.3rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
     .sec p { font-size: 14px; color: var(--muted); }
-
-    /* HOW IT WORKS */
     .steps { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-bottom: 3rem; }
     .step { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 0.75rem; text-align: center; }
     .step-letter { width: 36px; height: 36px; background: var(--j); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; margin: 0 auto 10px; }
     .step h3 { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 5px; }
     .step p { font-size: 11px; color: var(--muted); line-height: 1.5; }
-
-    /* DREAMS */
     .dreams { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 3rem; }
-    .dcard { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; position: relative; transition: box-shadow 0.2s; }
-    .dcard:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+    .dcard { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; position: relative; }
     .dcard-cat { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
     .dcard h3 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
     .dcard-who { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
@@ -87,32 +67,29 @@
     .s-hot { background: #faeeda; color: #854f0b; }
     .s-new { background: #e6f1fb; color: #185fa5; }
     .s-soon { background: #e1f5ee; color: #0f6e56; }
-
-    /* FORM */
     .form-box { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; margin-bottom: 3rem; }
     .form-box h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; }
     .form-box .sub { font-size: 13px; color: var(--muted); margin-bottom: 1.25rem; }
     .cats { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.25rem; }
     .cat { padding: 6px 14px; border-radius: 20px; font-size: 13px; border: 1px solid var(--border); cursor: pointer; background: var(--bg); color: var(--muted); font-family: inherit; transition: all 0.15s; }
-    .cat.on, .cat:hover { background: var(--j); color: #fff; border-color: var(--j); }
+    .cat.on { background: var(--j); color: #fff; border-color: var(--j); }
     .frow { display: flex; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
     .fg { flex: 1; min-width: 160px; display: flex; flex-direction: column; gap: 5px; }
     .fg label { font-size: 13px; color: var(--muted); font-weight: 500; }
-    .fg input, .fg textarea { padding: 10px 13px; border: 1px solid var(--border); border-radius: 10px; font-size: 14px; font-family: inherit; color: var(--text); background: var(--bg); outline: none; transition: border 0.2s; }
+    .fg input, .fg textarea { padding: 10px 13px; border: 1px solid var(--border); border-radius: 10px; font-size: 14px; font-family: inherit; color: var(--text); background: var(--bg); outline: none; }
     .fg input:focus, .fg textarea:focus { border-color: var(--j); }
     .fg textarea { height: 80px; resize: none; }
-    .submit-btn { width: 100%; background: var(--j); color: #fff; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: 700; border: none; cursor: pointer; margin-top: 6px; font-family: inherit; transition: opacity 0.2s; }
-    .submit-btn:hover { opacity: 0.88; }
-
-    /* ADS */
+    .submit-btn { width: 100%; background: var(--j); color: #fff; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: 700; border: none; cursor: pointer; margin-top: 6px; font-family: inherit; }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .success-msg { display: none; background: #e1f5ee; color: #0f6e56; border: 1px solid #a3d9c3; border-radius: 10px; padding: 14px; text-align: center; font-size: 14px; font-weight: 600; margin-top: 12px; }
+    .error-msg { display: none; background: #fde8e8; color: #c0392b; border: 1px solid #f5c6c6; border-radius: 10px; padding: 14px; text-align: center; font-size: 14px; margin-top: 12px; }
     .adbox { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; margin-bottom: 3rem; }
     .ad-hdr { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 8px; }
     .ad-hdr h2 { font-size: 1.2rem; font-weight: 700; }
     .ad-hdr p { font-size: 13px; color: var(--muted); margin-top: 3px; }
-    .ad-badge { background: #faeeda; color: #854f0b; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 12px; white-space: nowrap; }
+    .ad-badge { background: #faeeda; color: #854f0b; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 12px; }
     .ad-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 1.5rem; }
-    .aslot { border: 1.5px dashed var(--border); border-radius: 12px; padding: 1rem 0.5rem; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 6px; min-height: 90px; justify-content: center; transition: all 0.15s; }
-    .aslot:hover { border-color: var(--j); background: #fff8f4; }
+    .aslot { border: 1.5px dashed var(--border); border-radius: 12px; padding: 1rem 0.5rem; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 6px; min-height: 90px; justify-content: center; }
     .aslot.filled { border-style: solid; background: var(--bg); }
     .aslot-icon { font-size: 1.6rem; }
     .aslot-name { font-size: 13px; font-weight: 600; color: var(--text); }
@@ -123,39 +100,26 @@
     .fund-bar { background: #f0ede8; border-radius: 10px; height: 18px; overflow: hidden; margin: 10px 0 6px; }
     .fund-fill { height: 100%; background: var(--j); border-radius: 10px; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; font-size: 11px; color: #fff; font-weight: 700; }
     .fund-sub { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); }
-
-    /* DONATE */
     .donate { background: var(--dark); border-radius: var(--radius); padding: 3rem 2rem; text-align: center; margin-bottom: 3rem; }
     .donate h2 { font-size: 1.6rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
     .donate p { color: rgba(255,255,255,0.55); font-size: 14px; max-width: 480px; margin: 0 auto 1.75rem; line-height: 1.7; }
     .donate-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-
-    /* FOOTER */
     footer { border-top: 1px solid var(--border); padding: 1.75rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; background: #fff; }
     .footer-logo .name { font-size: 16px; font-weight: 700; color: var(--text); }
     .footer-logo .name span { color: var(--j); }
     .footer-logo .tagline { font-size: 11px; color: var(--muted); margin-top: 2px; }
     .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
-    .footer-links a { font-size: 13px; color: var(--muted); transition: color 0.2s; }
-    .footer-links a:hover { color: var(--text); }
-
-    /* RESPONSIVE */
+    .footer-links a { font-size: 13px; color: var(--muted); }
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .nav-menu { display: block; }
       .stats { grid-template-columns: repeat(2, 1fr); }
       .steps { grid-template-columns: repeat(3, 1fr); }
       .ad-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 480px) {
-      .steps { grid-template-columns: repeat(2, 1fr); }
-      .stats { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="logo">
     <div class="logo-box">J</div>
@@ -171,10 +135,8 @@
     <a href="#apply">Apply</a>
   </div>
   <button class="nav-cta" onclick="document.getElementById('apply').scrollIntoView({behavior:'smooth'})">Apply now</button>
-  <button class="nav-menu">&#9776;</button>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-dots"></div>
   <div class="hero-badge">&#10003; Serious about your dreams &nbsp;·&nbsp; 100% free for dreamers</div>
@@ -195,35 +157,31 @@
 </section>
 
 <div class="container">
-
-  <!-- STATS -->
   <div class="stats">
-    <div class="stat"><div class="stat-n">1,248</div><div class="stat-l">Dreams applied</div></div>
-    <div class="stat"><div class="stat-n accent">87</div><div class="stat-l">Dreams arranged</div></div>
+    <div class="stat"><div class="stat-n" id="stat-applied">0</div><div class="stat-l">Dreams applied</div></div>
+    <div class="stat"><div class="stat-n accent" id="stat-fulfilled">0</div><div class="stat-l">Dreams arranged</div></div>
     <div class="stat"><div class="stat-n">342</div><div class="stat-l">Brand sponsors</div></div>
     <div class="stat"><div class="stat-n">&#8377;2.1L</div><div class="stat-l">Arranged this month</div></div>
   </div>
 
-  <!-- HOW IT WORKS -->
   <div class="sec" id="how">
     <h2>How JASPAN works</h2>
     <p>Six letters, one powerful promise to the nation</p>
   </div>
   <div class="steps">
-    <div class="step"><div class="step-letter">J</div><h3>Just do it</h3><p>Come as you are — no money, no hassle needed from you</p></div>
-    <div class="step"><div class="step-letter">A</div><h3>Apply your dream</h3><p>Submit what you want — any gadget, big or small</p></div>
-    <div class="step"><div class="step-letter">S</div><h3>Seriously committed</h3><p>We are serious — not a gimmick, a real trustworthy platform</p></div>
-    <div class="step"><div class="step-letter">P</div><h3>Price is set</h3><p>We show the exact cost and track every single rupee</p></div>
+    <div class="step"><div class="step-letter">J</div><h3>Just do it</h3><p>Come as you are — no money needed from you</p></div>
+    <div class="step"><div class="step-letter">A</div><h3>Apply your dream</h3><p>Submit what you want — any gadget big or small</p></div>
+    <div class="step"><div class="step-letter">S</div><h3>Seriously committed</h3><p>Not a gimmick — a real trustworthy platform</p></div>
+    <div class="step"><div class="step-letter">P</div><h3>Price is set</h3><p>We show the exact cost and track every rupee</p></div>
     <div class="step"><div class="step-letter">A</div><h3>Arranged for you</h3><p>Brands pay $1/mo — that money fulfills your dream</p></div>
-    <div class="step"><div class="step-letter">N</div><h3>Nation benefits</h3><p>Pay it forward — help the next Indian dreamer too</p></div>
+    <div class="step"><div class="step-letter">N</div><h3>Nation benefits</h3><p>Pay it forward — help the next Indian dreamer</p></div>
   </div>
 
-  <!-- ACTIVE DREAMS -->
   <div class="sec" id="dreams">
     <h2>Active dreams</h2>
     <p>Real Indians, seriously applied — being arranged right now</p>
   </div>
-  <div class="dreams">
+  <div class="dreams" id="dreams-grid">
     <div class="dcard">
       <span class="dstatus s-hot">Almost there!</span>
       <div class="dcard-cat">&#127918; Gaming</div>
@@ -258,11 +216,10 @@
     </div>
   </div>
 
-  <!-- APPLY FORM -->
   <div class="form-box" id="apply">
     <h2>Apply for your dream</h2>
     <p class="sub">Seriously free — always. Takes 30 seconds.</p>
-    <div class="cats">
+    <div class="cats" id="cats">
       <button class="cat on" onclick="pickCat(this)">Gaming</button>
       <button class="cat" onclick="pickCat(this)">Phones</button>
       <button class="cat" onclick="pickCat(this)">Laptops</button>
@@ -272,91 +229,143 @@
       <button class="cat" onclick="pickCat(this)">Other</button>
     </div>
     <div class="frow">
-      <div class="fg"><label>Your name</label><input type="text" placeholder="Eg: Arjun Kumar" /></div>
-      <div class="fg"><label>Your city</label><input type="text" placeholder="Eg: Bengaluru" /></div>
-      <div class="fg"><label>Your age</label><input type="number" placeholder="Eg: 19" /></div>
+      <div class="fg"><label>Your name</label><input id="f-name" type="text" placeholder="Eg: Arjun Kumar" /></div>
+      <div class="fg"><label>Your city</label><input id="f-city" type="text" placeholder="Eg: Bengaluru" /></div>
+      <div class="fg"><label>Your age</label><input id="f-age" type="number" placeholder="Eg: 19" /></div>
     </div>
     <div class="frow">
-      <div class="fg" style="flex:2"><label>What is your dream?</label><input type="text" placeholder="Eg: PlayStation 5, iPhone 16 Pro, Gaming PC..." /></div>
-      <div class="fg"><label>Price (&#8377;)</label><input type="number" placeholder="Eg: 54990" /></div>
+      <div class="fg" style="flex:2"><label>What is your dream?</label><input id="f-dream" type="text" placeholder="Eg: PlayStation 5, iPhone 16 Pro..." /></div>
+      <div class="fg"><label>Price (&#8377;)</label><input id="f-price" type="number" placeholder="Eg: 54990" /></div>
     </div>
     <div class="frow">
-      <div class="fg"><label>Why is this your dream?</label><textarea placeholder="Be serious — tell us your real story. Why does this matter to you?"></textarea></div>
+      <div class="fg"><label>Why is this your dream?</label><textarea id="f-story" placeholder="Be serious — tell us your real story..."></textarea></div>
     </div>
-    <button class="submit-btn" onclick="alert('Your dream has been submitted! We will arrange it seriously. Thank you!')">Apply seriously — it is completely free</button>
+    <button class="submit-btn" id="submit-btn" onclick="submitDream()">Apply seriously — it is completely free</button>
+    <div class="success-msg" id="success-msg">🎉 Your dream has been submitted! We will arrange it seriously. Thank you!</div>
+    <div class="error-msg" id="error-msg">Something went wrong. Please try again!</div>
   </div>
 
-  <!-- BRANDS / ADS -->
   <div class="adbox" id="brands">
     <div class="ad-hdr">
-      <div>
-        <h2>Brand ad spots</h2>
-        <p>Just $1/month &middot; Seen by thousands of serious Indian dreamers</p>
-      </div>
+      <div><h2>Brand ad spots</h2><p>Just $1/month · Seen by thousands of Indian dreamers</p></div>
       <div class="ad-badge">342 / 500 spots filled</div>
     </div>
     <div class="ad-grid">
-      <div class="aslot filled">
-        <div class="aslot-icon">&#128230;</div>
-        <div class="aslot-name">Amazon India</div>
-        <div class="aslot-price">$1/mo</div>
-      </div>
-      <div class="aslot filled">
-        <div class="aslot-icon">&#128667;</div>
-        <div class="aslot-name">Swiggy</div>
-        <div class="aslot-price">$1/mo</div>
-      </div>
-      <div class="aslot filled">
-        <div class="aslot-icon">&#128179;</div>
-        <div class="aslot-name">PayTM</div>
-        <div class="aslot-price">$1/mo</div>
-      </div>
-      <div class="aslot" onclick="alert('Thank you for your interest! Contact us at hello@jaspan.in to get your brand listed for just $1/month.')">
+      <div class="aslot filled"><div class="aslot-icon">&#128230;</div><div class="aslot-name">Amazon India</div><div class="aslot-price">$1/mo</div></div>
+      <div class="aslot filled"><div class="aslot-icon">&#128667;</div><div class="aslot-name">Swiggy</div><div class="aslot-price">$1/mo</div></div>
+      <div class="aslot filled"><div class="aslot-icon">&#128179;</div><div class="aslot-name">PayTM</div><div class="aslot-price">$1/mo</div></div>
+      <div class="aslot" onclick="alert('Contact us at hello@jaspan.in to list your brand for just $1/month!')">
         <div style="font-size:1.6rem;color:#ccc">+</div>
         <div class="aslot-name" style="color:#999">Your brand here</div>
         <div class="aslot-add">Get started — $1 only</div>
       </div>
     </div>
-    <div class="fund-label">
-      <span>This month's dream fund</span>
-      <span>&#8377;2,10,000 of &#8377;3,00,000</span>
-    </div>
+    <div class="fund-label"><span>This month's dream fund</span><span>&#8377;2,10,000 of &#8377;3,00,000</span></div>
     <div class="fund-bar"><div class="fund-fill" style="width:70%">70%</div></div>
     <div class="fund-sub"><span>Ad revenue collected so far</span><span>4 more dreams to be arranged</span></div>
   </div>
 
-  <!-- PAY IT FORWARD -->
   <div class="donate">
     <h2>Pay it forward for the nation</h2>
     <p>Got your dream fulfilled? If you had saved money for it — donate it to JASPAN and make the next Indian's dream come true twice as fast.</p>
     <div class="donate-btns">
-      <button class="btn-main" onclick="alert('Thank you for your generosity! Donation feature coming soon.')">Donate my savings</button>
+      <button class="btn-main" onclick="alert('Donation feature coming soon!')">Donate my savings</button>
       <button class="btn-out" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">How does this work? &rarr;</button>
     </div>
   </div>
-
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">
     <div class="name"><span>JAS</span>PAN</div>
-    <div class="tagline">Just Apply Seriously &middot; Price Arranged &middot; Nation &middot; Made in India &#127470;&#127475;</div>
+    <div class="tagline">Just Apply Seriously · Price Arranged · Nation · Made in India &#127470;&#127475;</div>
   </div>
   <div class="footer-links">
     <a href="#">Privacy</a>
     <a href="#">Terms</a>
     <a href="#">Contact</a>
     <a href="#brands">For brands</a>
+    <a href="admin.html">Admin</a>
   </div>
 </footer>
 
 <script>
+  const SUPABASE_URL = 'https://vhfbltrllszwhbxtktud.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZoZmJsdHJsbHN6d2hieHRrdHVkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkwMDgzNjUsImV4cCI6MjA5NDU4NDM2NX0.wF-3s4dJljCGF49GKTD9sRsR-COqiYjRqQB_42KzbiQ';
+
+  let selectedCategory = 'Gaming';
+
   function pickCat(el) {
     document.querySelectorAll('.cat').forEach(c => c.classList.remove('on'));
     el.classList.add('on');
+    selectedCategory = el.textContent;
   }
-</script>
 
+  async function loadStats() {
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/dreams?select=id,status`, {
+        headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
+      });
+      const data = await res.json();
+      if (Array.isArray(data)) {
+        document.getElementById('stat-applied').textContent = data.length;
+        document.getElementById('stat-fulfilled').textContent = data.filter(d => d.status === 'fulfilled').length;
+      }
+    } catch(e) {}
+  }
+
+  async function submitDream() {
+    const name = document.getElementById('f-name').value.trim();
+    const city = document.getElementById('f-city').value.trim();
+    const age = document.getElementById('f-age').value;
+    const dream = document.getElementById('f-dream').value.trim();
+    const price = document.getElementById('f-price').value;
+    const story = document.getElementById('f-story').value.trim();
+
+    if (!name || !city || !dream) {
+      alert('Please fill in your name, city and dream!');
+      return;
+    }
+
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/dreams`, {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Authorization': `Bearer ${SUPABASE_KEY}`,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({ name, city, age: age ? parseInt(age) : null, category: selectedCategory, dream, price: price ? parseFloat(price) : null, story })
+      });
+
+      if (res.ok) {
+        document.getElementById('success-msg').style.display = 'block';
+        document.getElementById('error-msg').style.display = 'none';
+        document.getElementById('f-name').value = '';
+        document.getElementById('f-city').value = '';
+        document.getElementById('f-age').value = '';
+        document.getElementById('f-dream').value = '';
+        document.getElementById('f-price').value = '';
+        document.getElementById('f-story').value = '';
+        loadStats();
+      } else {
+        throw new Error('Failed');
+      }
+    } catch(e) {
+      document.getElementById('error-msg').style.display = 'block';
+      document.getElementById('success-msg').style.display = 'none';
+    }
+
+    btn.disabled = false;
+    btn.textContent = 'Apply seriously — it is completely free';
+  }
+
+  loadStats();
+</script>
 </body>
 </html>
